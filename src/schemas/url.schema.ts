@@ -6,8 +6,12 @@ export const urlSchema = z.object({
     .trim()
     .max(2048, 'URL is too long')
     .refine((value) => {
-      const protocol = new URL(value).protocol;
-      return protocol === 'http:' || protocol === 'https:';
+      try {
+        const protocol = new URL(value).protocol;
+        return protocol === 'http:' || protocol === 'https:';
+      } catch {
+        return false;
+      }
     }, 'Only HTTP and HTTPS URLs are allowed'),
 });
 export const urlParamSchema = z.object({

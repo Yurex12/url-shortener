@@ -17,7 +17,7 @@ const validate = (
         res.status(400).json({
           success: false,
           message: `Invalid ${source}`,
-          errors: z.treeifyError(error),
+          errors: z.flattenError(error).fieldErrors,
         });
         return;
       }

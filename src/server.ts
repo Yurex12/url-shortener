@@ -2,6 +2,7 @@ import 'dotenv/config';
 import express from 'express';
 
 import urlRoutes from './routes/url.routes.js';
+import redirectRoutes from './routes/redirect.routes.js';
 import {
   errorHandler,
   notFoundHandler,
@@ -15,6 +16,7 @@ app.use(express.json());
 
 app.get('/', (req, res) => res.send('API is running...'));
 app.use('/api/urls', urlRoutes);
+app.use(redirectRoutes);
 app.use(notFoundHandler);
 app.use(errorHandler);
 

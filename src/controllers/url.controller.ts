@@ -11,10 +11,13 @@ export const createUrl = async (
 
   const { slug } = await createShortUrl(url);
 
+  const shortUrl = `${process.env.BASE_URL}/${slug}`;
+
   res.status(201).json({
     success: true,
     message: 'Url shortened successfully',
     slug,
+    shortUrl,
   });
 };
 
