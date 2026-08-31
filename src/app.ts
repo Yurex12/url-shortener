@@ -15,7 +15,7 @@ const app = express();
 
 app.use(express.json());
 
-app.use(express.static(path.join(process.cwd(), 'public')));
+app.use(express.static(path.join(import.meta.dirname, '..', 'public')));
 
 app.get('/health', (req, res) => res.send('API is running...'));
 app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));

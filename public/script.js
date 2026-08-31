@@ -30,10 +30,8 @@ form.addEventListener('submit', async (event) => {
       return;
     }
 
-    const shortUrl = `${window.location.origin}/${data.slug}`;
-
-    result.href = shortUrl;
-    result.textContent = shortUrl;
+    result.href = data.shortUrl;
+    result.textContent = data.shortUrl;
     resultContainer.classList.remove('hidden');
 
     copyButton.textContent = 'Copy';
