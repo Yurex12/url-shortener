@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shortly — URL Shortener</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+
+  <body>
+    <main class="container">
+      <div class="card">
+        <span class="badge">URL SHORTENER</span>
+
+        <h1>Make your links <span>shorter.</span></h1>
+
+        <p class="subtitle">
+          Turn long URLs into simple, shareable links in seconds.
+        </p>
+
+        <form id="url-form">
+          <div class="input-wrapper">
+            <input
+              id="url-input"
+              type="url"
+              placeholder="https://example.com/your-long-url"
+              required
+            />
+
+            <button type="submit">Shorten</button>
+          </div>
+        </form>
+
+        <p id="error" class="error hidden"></p>
+
+        <div id="result-container" class="result hidden">
+          <div class="result-content">
+            <span class="result-label">Your shortened URL</span>
+            <a id="result" href="#" target="_blank"></a>
+          </div>
+
+          <button id="copy-button" type="button">Copy</button>
+        </div>
+      </div>
+
+      <p class="footer">Simple. Fast. Short.</p>
+    </main>
+
+    <script src="/script.js"></script>
+  </body>
+</html>
