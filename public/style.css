@@ -103,6 +103,36 @@ button:hover {
   opacity: 0.9;
 }
 
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.75;
+  transform: none;
+}
+
+.loading {
+  position: relative;
+  color: transparent;
+}
+
+.loading::after {
+  position: absolute;
+  inset: 0;
+  width: 16px;
+  height: 16px;
+  margin: auto;
+  border: 2px solid rgba(17, 24, 39, 0.25);
+  border-top-color: #111827;
+  border-radius: 50%;
+  content: '';
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 .error {
   margin: 14px 0 0;
   padding: 12px 14px;

@@ -4,9 +4,14 @@ const error = document.querySelector('#error');
 const resultContainer = document.querySelector('#result-container');
 const result = document.querySelector('#result');
 const copyButton = document.querySelector('#copy-button');
+const submitButton = document.querySelector('#submit-button');
 
 form.addEventListener('submit', async (event) => {
   event.preventDefault();
+
+  submitButton.disabled = true;
+  submitButton.textContent = 'Shortening...';
+  submitButton.classList.add('loading');
 
   error.classList.add('hidden');
   resultContainer.classList.add('hidden');
@@ -38,6 +43,10 @@ form.addEventListener('submit', async (event) => {
   } catch {
     error.textContent = 'Something went wrong. Please try again.';
     error.classList.remove('hidden');
+  } finally {
+    submitButton.disabled = false;
+    submitButton.textContent = 'Shorten';
+    submitButton.classList.remove('loading');
   }
 });
 
